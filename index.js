@@ -1,11 +1,9 @@
 const express = require('express');
-const { MongoClient } = require('mongodb');
-const ObjectId = require('mongodb').ObjectId;
+const app = express();
 const cors = require('cors');
 require('dotenv').config();
-
-const app = express();
-const port = 5000;
+const { MongoClient } = require('mongodb');
+const port = process.env.PORT || 5000;
 
 // middleware 
 app.use(cors());
@@ -103,5 +101,5 @@ app.get('/',(req,res)=>{
 });
 
 app.listen(port,()=>{
-    console.log('Lerning manage ment server on port', port);
+    console.log(`server run at port:${port}`)
 })
